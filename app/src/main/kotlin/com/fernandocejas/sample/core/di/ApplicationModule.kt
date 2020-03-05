@@ -34,7 +34,8 @@ class ApplicationModule(private val application: AndroidApplication) {
 
     @Provides @Singleton fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/")
+                ///.baseUrl("https://raw.githubusercontent.com/android10/Sample-Data/master/Android-CleanArchitecture-Kotlin/")
+                .baseUrl("https://pastebin.com/raw/")
                 .client(createClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

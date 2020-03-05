@@ -17,6 +17,7 @@ package com.fernandocejas.sample.core.di.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import com.fernandocejas.sample.features.mindvalleys.MindValleyViewModel
 import com.fernandocejas.sample.features.movies.MovieDetailsViewModel
 import com.fernandocejas.sample.features.movies.MoviesViewModel
 import dagger.Binds
@@ -37,4 +38,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MovieDetailsViewModel::class)
     abstract fun bindsMovieDetailsViewModel(movieDetailsViewModel: MovieDetailsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MindValleyViewModel::class)
+    abstract fun bindsMindValleyViewModel(movieDetailsViewModel: MindValleyViewModel): ViewModel
 }

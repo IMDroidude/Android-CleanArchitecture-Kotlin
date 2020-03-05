@@ -22,12 +22,20 @@ import com.fernandocejas.sample.core.functional.Either
 import com.fernandocejas.sample.core.functional.Either.Left
 import com.fernandocejas.sample.core.functional.Either.Right
 import com.fernandocejas.sample.core.platform.NetworkHandler
+import com.fernandocejas.sample.features.mindvalleys.*
+import com.fernandocejas.sample.features.mindvalleys.models.CategoryPayload
+import com.fernandocejas.sample.features.mindvalleys.models.ChannelPayload
+import com.fernandocejas.sample.features.mindvalleys.models.EpisodePayload
 import retrofit2.Call
 import javax.inject.Inject
 
 interface MoviesRepository {
     fun movies(): Either<Failure, List<Movie>>
     fun movieDetails(movieId: Int): Either<Failure, MovieDetails>
+
+    fun categories(): Either<Failure, CategoryPayload>
+    fun episodes(): Either<Failure, EpisodePayload>
+    fun channels(): Either<Failure, ChannelPayload>
 
     class Network
     @Inject constructor(private val networkHandler: NetworkHandler,
@@ -36,6 +44,29 @@ interface MoviesRepository {
         override fun movies(): Either<Failure, List<Movie>> {
             return when (networkHandler.isConnected) {
                 true -> request(service.movies(), { it.map { it.toMovie() } }, emptyList())
+                false, null -> Left(NetworkConnection)
+            }
+        }
+
+        override fun categories(): Either<Failure, CategoryPayload> {
+            return when (networkHandler.isConnected) {
+                //true -> request(service.categories(), { it.map { it.toCategoryList() } }, emptyList())
+                true -> request(service.categories(), { it.payload }, WebResponse<CategoryPayload>(CategoryPayload(emptyList())))
+                false, null -> Left(NetworkConnection)
+            }
+        }
+
+        override fun episodes(): Either<Failure, EpisodePayload> {
+            return when (networkHandler.isConnected) {
+                //true -> request(service.categories(), { it.map { it.toCategoryList() } }, emptyList())
+                true -> request(service.episodes(), { it.payload }, WebResponse<EpisodePayload>(EpisodePayload(emptyList())))
+                false, null -> Left(NetworkConnection)
+            }
+        }
+
+        override fun channels(): Either<Failure, ChannelPayload> {
+            return when (networkHandler.isConnected) {
+                true -> request(service.channels(), { it.payload }, WebResponse<ChannelPayload>(ChannelPayload(emptyList())))
                 false, null -> Left(NetworkConnection)
             }
         }

@@ -15,6 +15,10 @@
  */
 package com.fernandocejas.sample.features.movies
 
+import com.fernandocejas.sample.features.mindvalleys.*
+import com.fernandocejas.sample.features.mindvalleys.models.ChannelPayload
+import com.fernandocejas.sample.features.mindvalleys.models.EpisodePayload
+import retrofit2.Call
 import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -26,4 +30,11 @@ class MoviesService
 
     override fun movies() = moviesApi.movies()
     override fun movieDetails(movieId: Int) = moviesApi.movieDetails(movieId)
+
+    override fun categories()  = moviesApi.categories()
+    override fun episodes(): Call<WebResponse<EpisodePayload>>  = moviesApi.episodes()
+
+    override fun channels(): Call<WebResponse<ChannelPayload>> = moviesApi.channels()
+
+
 }

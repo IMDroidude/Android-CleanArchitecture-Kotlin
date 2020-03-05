@@ -29,6 +29,7 @@ import com.fernandocejas.sample.features.movies.MovieDetailsActivity
 import com.fernandocejas.sample.features.movies.MovieView
 import com.fernandocejas.sample.features.movies.MoviesActivity
 import com.fernandocejas.sample.core.extension.empty
+import com.fernandocejas.sample.features.mindvalleys.MindValleyActivity
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -46,7 +47,7 @@ class Navigator
         }
     }
 
-    private fun showMovies(context: Context) = context.startActivity(MoviesActivity.callingIntent(context))
+    private fun showMovies(context: Context) = context.startActivity(MindValleyActivity.callingIntent(context))
 
     fun showMovieDetails(activity: FragmentActivity, movie: MovieView, navigationExtras: Extras) {
         val intent = MovieDetailsActivity.callingIntent(activity, movie)

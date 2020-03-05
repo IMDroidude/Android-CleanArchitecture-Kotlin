@@ -88,6 +88,7 @@ class MoviesFragment : BaseFragment() {
         }
     }
 
+
     private fun renderFailure(@StringRes message: Int) {
         movieList.invisible()
         emptyView.visible()

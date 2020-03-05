@@ -15,6 +15,10 @@
  */
 package com.fernandocejas.sample.features.movies
 
+import com.fernandocejas.sample.features.mindvalleys.*
+import com.fernandocejas.sample.features.mindvalleys.models.CategoryPayload
+import com.fernandocejas.sample.features.mindvalleys.models.ChannelPayload
+import com.fernandocejas.sample.features.mindvalleys.models.EpisodePayload
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -24,8 +28,16 @@ internal interface MoviesApi {
         private const val PARAM_MOVIE_ID = "movieId"
         private const val MOVIES = "movies.json"
         private const val MOVIE_DETAILS = "movie_0{$PARAM_MOVIE_ID}.json"
+
+        private const val CATEGORIES = "A0CgArX3"
+        private const val EPISODES = "z5AExTtw"
+        private const val CHANNELS = "Xt12uVhM"
     }
 
     @GET(MOVIES) fun movies(): Call<List<MovieEntity>>
     @GET(MOVIE_DETAILS) fun movieDetails(@Path(PARAM_MOVIE_ID) movieId: Int): Call<MovieDetailsEntity>
+
+    @GET(CATEGORIES) fun categories(): Call<WebResponse<CategoryPayload>>
+    @GET(EPISODES) fun episodes(): Call<WebResponse<EpisodePayload>>
+    @GET(CHANNELS) fun channels(): Call<WebResponse<ChannelPayload>>
 }
