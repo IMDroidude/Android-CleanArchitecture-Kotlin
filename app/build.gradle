@@ -92,6 +92,11 @@ dependencies {
   implementation applicationDependencies.retrofit
   implementation applicationDependencies.okhttpLoggingInterceptor
 
+  implementation applicationDependencies.roomRuntime
+  annotationProcessor applicationDependencies.roomAnnotationProcessor
+
+
+
   //implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
   //Unit/Integration tests dependencies

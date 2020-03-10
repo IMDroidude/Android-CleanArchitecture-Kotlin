@@ -8,4 +8,4 @@ data class EpisodeBO(val type:String, val title:String, val coverAsset: CovertAs
 
 data class CovertAssetBO(val url:String)
 
-data class ChannelLinkBO(val title: ChannelLinkBO)
+data class ChannelLinkBO(val title: String)

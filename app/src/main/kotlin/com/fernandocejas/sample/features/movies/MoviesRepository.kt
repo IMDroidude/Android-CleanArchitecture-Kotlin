@@ -50,7 +50,6 @@ interface MoviesRepository {
 
         override fun categories(): Either<Failure, CategoryPayload> {
             return when (networkHandler.isConnected) {
-                //true -> request(service.categories(), { it.map { it.toCategoryList() } }, emptyList())
                 true -> request(service.categories(), { it.payload }, WebResponse<CategoryPayload>(CategoryPayload(emptyList())))
                 false, null -> Left(NetworkConnection)
             }
@@ -89,5 +88,17 @@ interface MoviesRepository {
                 Left(ServerError)
             }
         }
+
+        /*private fun <T, R> request(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
+            return try {
+                val response = call.execute()
+                when (response.isSuccessful) {
+                    true -> Right(transform((response.body() ?: "")))
+                    false -> Left(ServerError)
+                }
+            } catch (exception: Throwable) {
+                Left(ServerError)
+            }
+        }*/
     }
 }
