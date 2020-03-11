@@ -15,9 +15,9 @@
  */
 package com.fernandocejas.sample.core.extension
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.fernandocejas.sample.core.exception.Failure
 import com.fernandocejas.sample.features.mindvalleys.models.CategoryBO
 import kotlin.reflect.KFunction1

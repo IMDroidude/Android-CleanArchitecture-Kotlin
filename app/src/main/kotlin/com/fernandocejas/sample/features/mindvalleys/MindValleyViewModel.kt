@@ -1,6 +1,6 @@
 package com.fernandocejas.sample.features.mindvalleys
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.fernandocejas.sample.core.exception.Failure
 import com.fernandocejas.sample.core.interactor.UseCase
 import com.fernandocejas.sample.core.platform.BaseViewModel

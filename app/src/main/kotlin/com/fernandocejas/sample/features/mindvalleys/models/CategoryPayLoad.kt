@@ -1,9 +1,9 @@
 package com.fernandocejas.sample.features.mindvalleys.models
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.Ignore
-import android.arch.persistence.room.PrimaryKey
+import androidx.lifecycle.LiveData
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.fernandocejas.sample.features.mindvalleys.WebResponse
 import com.google.gson.annotations.SerializedName
 

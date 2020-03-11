@@ -1,6 +1,6 @@
 package com.fernandocejas.sample.features.mindvalleys.localDB
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import com.fernandocejas.sample.features.mindvalleys.models.CategoryBO
 
 class MindValleyRepository(private val mindValleyDao: MindValleyDao) {

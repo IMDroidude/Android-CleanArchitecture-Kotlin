@@ -1,8 +1,8 @@
 package com.fernandocejas.sample.features.databaseArchitecutre
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.os.Bundle
-import android.support.annotation.StringRes
+import androidx.annotation.StringRes
 import android.view.View
 import com.fernandocejas.sample.R
 import com.fernandocejas.sample.core.exception.Failure
@@ -42,6 +42,17 @@ class MindValleyFragmentNew : BaseFragment(){
         mindValleyViewModel.categoryList.observe(this, Observer {
             val categories = it
             //display categories in list..
+
+            categoryPayload?.let {
+                val linearLayoutManager = LinearLayoutManager(context)
+//            linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+//            rv_main_categories.layoutManager = linearLayoutManager
+                context?.let { ctx ->
+                    val adapter = CategoriesAdapter(ctx, categoryPayload.categories)
+                    rv_main_categories.adapter = adapter
+                }
+            }
+
         })
 
 

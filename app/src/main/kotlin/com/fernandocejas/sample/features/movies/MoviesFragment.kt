@@ -16,8 +16,8 @@
 package com.fernandocejas.sample.features.movies
 
 import android.os.Bundle
-import android.support.annotation.StringRes
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.annotation.StringRes
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.view.View
 import com.fernandocejas.sample.core.platform.BaseFragment
 import com.fernandocejas.sample.R

@@ -27,25 +27,21 @@ class MindValleyFragment :BaseFragment(){
         super.onCreate(savedInstanceState)
         appComponent.inject(this)
 
-
         mindValleyViewModel = viewModel(viewModelFactory){
             observe(categoryPayload, ::renderMoviesList)
             failure(categoryFailure,::handleFailure)
-
             observe(episodePayload, ::renderEpisodeList)
-            failure(episodeFailure, ::handleFailure)
-
+            //failure(episodeFailure, ::handleFai)
             observe(channelPayload,::renderChannelList)
-            failure(channelFailure, ::handleFailure)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeView()
-        loadCategoryList()
+        //loadCategoryList()
         loadEpisodeList()
-        loadChannelsList()
+        //loadChannelsList()
 
         /*mindValleyViewModel.categories.listen(this){
 

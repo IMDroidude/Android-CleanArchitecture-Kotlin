@@ -8,4 +8,8 @@
     <color name="colorTextSecondary">#7f1a18</color>
 
     <color name="translucentBackground">#ED000000</color>
+    <color name="app_background">#23272F</color>
+    <color name="text_color_heading">#C1C1C1</color>
+    <color name="text_color_medium_heading">#95989D</color>
+    <color name="white">#FFF</color>
 </resources>
