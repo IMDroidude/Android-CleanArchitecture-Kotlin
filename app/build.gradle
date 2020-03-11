@@ -91,6 +91,8 @@ dependencies {
   implementation applicationDependencies.dagger
   implementation applicationDependencies.retrofit
   implementation applicationDependencies.okhttpLoggingInterceptor
+  implementation applicationDependencies.sdp
+  implementation applicationDependencies.ssp
 
   //implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
@@ -113,6 +115,8 @@ dependencies {
   debugImplementation developmentDependencies.leakCanary
   releaseImplementation developmentDependencies.leakCanaryNoop
   testImplementation developmentDependencies.leakCanaryNoop
+
+
 }
 
 kotlin {

@@ -16,8 +16,8 @@
 package com.fernandocejas.sample.features.movies
 
 import android.os.Bundle
-import android.support.annotation.StringRes
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.annotation.StringRes
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.view.View
 import com.fernandocejas.sample.core.platform.BaseFragment
 import com.fernandocejas.sample.R
@@ -71,13 +71,13 @@ class MoviesFragment : BaseFragment() {
     private fun loadMoviesList() {
         emptyView.invisible()
         movieList.visible()
-        showProgress()
+//        showProgress()
         moviesViewModel.loadMovies()
     }
 
     private fun renderMoviesList(movies: List<MovieView>?) {
         moviesAdapter.collection = movies.orEmpty()
-        hideProgress()
+//        hideProgress()
     }
 
     private fun handleFailure(failure: Failure?) {
@@ -92,7 +92,7 @@ class MoviesFragment : BaseFragment() {
     private fun renderFailure(@StringRes message: Int) {
         movieList.invisible()
         emptyView.visible()
-        hideProgress()
+//        hideProgress()
         notifyWithAction(message, R.string.action_refresh, ::loadMoviesList)
     }
 }

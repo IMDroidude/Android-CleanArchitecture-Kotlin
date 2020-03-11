@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Button">
+        <attr name="btfonts" format="enum">
+            <enum name="font_regular" value="0" />
+            <enum name="font_bold" value="1" />
+            <enum name="font_italic" value="2" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="TextView">
+        <attr name="tvfonts" format="enum">
+            <enum name="font_regular" value="0" />
+            <enum name="font_bold" value="1" />
+            <enum name="font_italic" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="EditText">
+        <attr name="etfonts" format="enum">
+            <enum name="font_regular" value="0" />
+            <enum name="font_bold" value="1" />
+            <enum name="font_italic" value="2" />
+        </attr>
+    </declare-styleable>
+
+
+</resources>

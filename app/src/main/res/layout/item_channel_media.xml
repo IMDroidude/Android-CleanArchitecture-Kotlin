@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_192sdp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/iv_channel_icon"
+        android:layout_width="@dimen/_192sdp"
+        android:layout_height="@dimen/_268sdp"
+        android:scaleType="fitXY" />
+
+    <com.fernandocejas.sample.core.custom_views.TextView
+        android:id="@+id/tv_channel_heading"
+        android:layout_width="@dimen/_190sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:maxLines="2"
+        android:minLines="2"
+        android:text="The Cure for Loneliness"
+        android:textColor="@color/white"
+        android:textSize="@dimen/heading_13px"
+        app:tvfonts="font_bold" />
+
+</LinearLayout>

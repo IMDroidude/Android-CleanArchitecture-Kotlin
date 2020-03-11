@@ -12,4 +12,9 @@
 
     <!-- Progress view. -->
     <dimen name="progress_view_height">10dp</dimen>
+    <dimen name="heading_30px">@dimen/_27ssp</dimen>
+    <dimen name="heading_20px">@dimen/_18ssp</dimen>
+    <dimen name="heading_17px">@dimen/_16ssp</dimen>
+    <dimen name="heading_13px">@dimen/_12ssp</dimen>
+    <dimen name="heading_small_bold">@dimen/_13ssp</dimen>
 </resources>
