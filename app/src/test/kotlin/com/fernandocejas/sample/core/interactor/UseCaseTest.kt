@@ -19,7 +19,9 @@ import com.fernandocejas.sample.AndroidTest
 import com.fernandocejas.sample.core.exception.Failure
 import com.fernandocejas.sample.core.functional.Either
 import com.fernandocejas.sample.core.functional.Either.Right
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+//import kotlinx.coroutines.experimental.runBlocking
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
@@ -32,7 +34,8 @@ class UseCaseTest : AndroidTest() {
 
     @Test fun `running use case should return 'Either' of use case type`() {
         val params = MyParams(TYPE_PARAM)
-        val result = runBlocking { useCase.run(params) }
+        //val result = runBlocking { useCase.run(params) }
+        val result = GlobalScope.launch { useCase.run(params) }
 
         result shouldEqual Right(MyType(TYPE_TEST))
     }
@@ -43,7 +46,8 @@ class UseCaseTest : AndroidTest() {
         val params = MyParams("TestParam")
         val onResult = { myResult: Either<Failure, MyType> -> result = myResult }
 
-        runBlocking { useCase(params, onResult) }
+        //runBlocking { useCase(params, onResult) }
+        GlobalScope.launch { useCase(params, onResult) }
 
         result shouldEqual Right(MyType(TYPE_TEST))
     }

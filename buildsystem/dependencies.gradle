@@ -5,7 +5,7 @@ allprojects {
   }
 }
 
-ext {
+/*ext {
   //Android libraries
   appCompat_version = '27.1.0'
   constraintLayout_version = '1.0.2'
@@ -79,4 +79,4 @@ ext {
       leakCanary:         "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
       leakCanaryNoop:     "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
   ]
-}
+}*/

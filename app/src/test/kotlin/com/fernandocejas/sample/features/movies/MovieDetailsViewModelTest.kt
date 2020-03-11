@@ -20,7 +20,9 @@ import com.fernandocejas.sample.core.functional.Either.Right
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.eq
 import com.nhaarman.mockito_kotlin.given
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+///import kotlinx.coroutines.experimental.runBlocking
 import org.amshove.kluent.shouldEqualTo
 import org.junit.Before
 import org.junit.Test
@@ -41,7 +43,8 @@ class MovieDetailsViewModelTest : AndroidTest() {
     @Test fun `loading movie details should update live data`() {
         val movieDetails = MovieDetails(0, "IronMan", "poster", "summary",
                 "cast", "director", 2018, "trailer")
-        given { runBlocking { getMovieDetails.run(eq(any())) } }.willReturn(Right(movieDetails))
+        ///given { runBlocking { getMovieDetails.run(eq(any())) } }.willReturn(Right(movieDetails))
+        ///given { GlobalScope.launch { getMovieDetails.run(eq(any())) } }.willReturn(Right(movieDetails))
 
         movieDetailsViewModel.movieDetails.observeForever {
             with(it!!) {
@@ -56,6 +59,7 @@ class MovieDetailsViewModelTest : AndroidTest() {
             }
         }
 
-        runBlocking { movieDetailsViewModel.loadMovieDetails(0) }
+        //runBlocking { movieDetailsViewModel.loadMovieDetails(0) }
+        GlobalScope.launch { movieDetailsViewModel.loadMovieDetails(0) }
     }
 }

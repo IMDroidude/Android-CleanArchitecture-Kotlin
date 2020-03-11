@@ -10,6 +10,7 @@ import com.fernandocejas.sample.core.extension.observe
 import com.fernandocejas.sample.core.extension.viewModel
 import com.fernandocejas.sample.core.navigation.Navigator
 import com.fernandocejas.sample.core.platform.BaseFragment
+import com.fernandocejas.sample.features.mindvalleys.localDB.MindValleyDatabase
 import com.fernandocejas.sample.features.mindvalleys.models.CategoryBO
 import com.fernandocejas.sample.features.movies.MovieFailure
 import javax.inject.Inject
@@ -27,31 +28,22 @@ class MindValleyFragmentNew : BaseFragment(){
         appComponent.inject(this)
 
         mindValleyViewModel = viewModel(viewModelFactory){
-            /*observe(categoryPayload, ::renderMoviesList)
-            failure(categoryFailure,::handleFailure)
 
-            observe(episodePayload, ::renderEpisodeList)
-            failure(episodeFailure, ::handleFailure)
-
-            observe(channelPayload,::renderChannelList)
-            failure(channelFailure, ::handleFailure)*/
         }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mindValleyViewModel.loadDatabase(context!!)
+        //mindValleyViewModel.loadDatabase(context!!)
 
         initializeView()
         loadCategoryList()
 
-        /*mindValleyViewModel.categories.listen(this){
-
-        }*/
         mindValleyViewModel.categoryList.observe(this, Observer {
             val categories = it
+            //display categories in list..
         })
+
 
         /*mindValleyViewModel.categories.listen(this){
             renderMoviesList(it)
@@ -70,7 +62,7 @@ class MindValleyFragmentNew : BaseFragment(){
         //emptyView.invisible()
         //movieList.visible()
         showProgress()
-        ///mindValleyViewModel.loadCategories()
+        mindValleyViewModel.loadCategories()
     }
 
     private fun renderMoviesList(categories:List<CategoryBO>) {

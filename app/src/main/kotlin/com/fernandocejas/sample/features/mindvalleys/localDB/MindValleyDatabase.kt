@@ -27,23 +27,11 @@ abstract class MindValleyDatabase : RoomDatabase(){
                         context.applicationContext,
                         MindValleyDatabase::class.java,
                         "mindvalley_database"
-                ).build()
+                ).allowMainThreadQueries()
+                        .fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }
         }
     }
-
-    /*override fun createOpenHelper(config: DatabaseConfiguration?): SupportSQLiteOpenHelper {
-        TODO("Not yet implemented")
-    }
-
-    override fun createInvalidationTracker(): InvalidationTracker {
-        TODO("Not yet implemented")
-    }
-
-    override fun clearAllTables() {
-        TODO("Not yet implemented")
-    }*/
-
 }

@@ -19,7 +19,4 @@ interface MindValleyDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(categoryBOList: List<CategoryBO>)
-
-    /*@Query("DELETE FROM word_table")
-    suspend fun deleteAll()*/
 }
