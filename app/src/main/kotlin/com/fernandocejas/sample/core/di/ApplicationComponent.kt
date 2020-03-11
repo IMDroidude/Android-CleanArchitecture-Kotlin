@@ -20,6 +20,7 @@ import com.fernandocejas.sample.core.di.viewmodel.ViewModelModule
 import com.fernandocejas.sample.features.movies.MovieDetailsFragment
 import com.fernandocejas.sample.features.movies.MoviesFragment
 import com.fernandocejas.sample.core.navigation.RouteActivity
+import com.fernandocejas.sample.features.databaseArchitecutre.MindValleyFragmentNew
 import com.fernandocejas.sample.features.mindvalleys.MindValleyFragment
 import dagger.Component
 import javax.inject.Singleton
@@ -34,4 +35,5 @@ interface ApplicationComponent {
     fun inject(movieDetailsFragment: MovieDetailsFragment)
 
     fun inject(mindValleyFragment: MindValleyFragment)
+    fun inject(mindValleyFragmentNew: MindValleyFragmentNew)
 }

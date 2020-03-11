@@ -5,7 +5,7 @@ allprojects {
   }
 }
 
-ext {
+/*ext {
   //Android libraries
   appCompat_version = '27.1.0'
   constraintLayout_version = '1.0.2'
@@ -19,6 +19,7 @@ ext {
   javaxInject_version = '1'
   retrofit_version = '2.3.0'
   okhttp_logging_interceptor_version = '3.8.1'
+  room_architecture = '1.1.1'
 
   //Unit Testing
   robolectric_version = '3.8'
@@ -52,6 +53,9 @@ ext {
       javaxInject:                "javax.inject:javax.inject:$javaxInject_version",
       retrofit:                   "com.squareup.retrofit2:converter-gson:$retrofit_version",
       okhttpLoggingInterceptor:   "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor_version",
+
+      roomRuntime :                "android.arch.persistence.room:runtime:$room_architecture",
+      roomAnnotationProcessor:     "android.arch.persistence.room:compiler:$room_architecture"
   ]
 
   unitTesting = [
@@ -75,4 +79,4 @@ ext {
       leakCanary:         "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
       leakCanaryNoop:     "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
   ]
-}
+}*/

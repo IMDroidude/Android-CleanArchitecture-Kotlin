@@ -39,6 +39,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     </activity>
 
     <activity android:name=".features.mindvalleys.MindValleyActivity"/>
+    <activity android:name=".features.databaseArchitecutre.MindValleyActivityNew"/>
 
     <activity
         android:name=".features.movies.MovieDetailsActivity"
