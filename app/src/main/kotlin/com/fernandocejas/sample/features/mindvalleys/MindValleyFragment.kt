@@ -27,6 +27,7 @@ class MindValleyFragment :BaseFragment(){
         super.onCreate(savedInstanceState)
         appComponent.inject(this)
 
+
         mindValleyViewModel = viewModel(viewModelFactory){
             observe(categoryPayload, ::renderMoviesList)
             failure(categoryFailure,::handleFailure)
