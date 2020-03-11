@@ -9,7 +9,8 @@ ext {
   appCompat_version = '27.1.0'
   constraintLayout_version = '1.0.2'
   archComponents_version = '1.1.1'
-  glide_version = '4.0.0'
+  sdp_ssp = '1.0.6'
+  glide_version = '4.11.0'
 
   //Third party libraries
   kotlin_coroutines_version = '0.22.1'
@@ -53,7 +54,8 @@ ext {
           javaxInject:                "javax.inject:javax.inject:$javaxInject_version",
           retrofit:                   "com.squareup.retrofit2:converter-gson:$retrofit_version",
           okhttpLoggingInterceptor:   "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor_version",
-
+          sdp                     : "com.intuit.sdp:sdp-android:$sdp_ssp",
+          ssp                     : "com.intuit.ssp:ssp-android:$sdp_ssp",
           roomRuntime : 'androidx.room:room-runtime:2.0.0',
           roomAnnotationProcessor: 'androidx.room:room-compiler:2.0.0'
   ]

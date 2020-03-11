@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
-import com.fernandocejas.sample.features.mindvalleys.models.CategoryBO
+import com.fernandocejas.sample.features.mindvalleys.models.*
 
 @Database(entities = arrayOf(CategoryBO::class), version = 1, exportSchema = false)
 abstract class MindValleyDatabase : RoomDatabase(){

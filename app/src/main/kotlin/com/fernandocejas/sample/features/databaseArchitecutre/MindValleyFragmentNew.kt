@@ -1,21 +1,24 @@
 package com.fernandocejas.sample.features.databaseArchitecutre
 
-import androidx.lifecycle.Observer
 import android.os.Bundle
-import androidx.annotation.StringRes
 import android.view.View
+import androidx.annotation.StringRes
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.fernandocejas.sample.R
 import com.fernandocejas.sample.core.exception.Failure
-import com.fernandocejas.sample.core.extension.observe
 import com.fernandocejas.sample.core.extension.viewModel
 import com.fernandocejas.sample.core.navigation.Navigator
 import com.fernandocejas.sample.core.platform.BaseFragment
-import com.fernandocejas.sample.features.mindvalleys.localDB.MindValleyDatabase
 import com.fernandocejas.sample.features.mindvalleys.models.CategoryBO
+import com.fernandocejas.sample.features.mindvalleys.rv_adapter.CategoriesAdapter
+import com.fernandocejas.sample.features.mindvalleys.rv_adapter.ChannelsAdapter
+import com.fernandocejas.sample.features.mindvalleys.rv_adapter.EpisodesAdapter
 import com.fernandocejas.sample.features.movies.MovieFailure
+import kotlinx.android.synthetic.main.fragment_mindvalley_dashboard.*
 import javax.inject.Inject
 
-class MindValleyFragmentNew : BaseFragment(){
+class MindValleyFragmentNew : BaseFragment() {
     override fun layoutId(): Int = R.layout.fragment_mindvalley_dashboard
 
     @Inject
@@ -27,7 +30,7 @@ class MindValleyFragmentNew : BaseFragment(){
         super.onCreate(savedInstanceState)
         appComponent.inject(this)
 
-        mindValleyViewModel = viewModel(viewModelFactory){
+        mindValleyViewModel = viewModel(viewModelFactory) {
 
         }
     }
@@ -42,13 +45,9 @@ class MindValleyFragmentNew : BaseFragment(){
         mindValleyViewModel.categoryList.observe(this, Observer {
             val categories = it
             //display categories in list..
-
-            categoryPayload?.let {
-                val linearLayoutManager = LinearLayoutManager(context)
-//            linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
-//            rv_main_categories.layoutManager = linearLayoutManager
+            categories?.let {
                 context?.let { ctx ->
-                    val adapter = CategoriesAdapter(ctx, categoryPayload.categories)
+                    val adapter = CategoriesAdapter(ctx, categories)
                     rv_main_categories.adapter = adapter
                 }
             }
@@ -56,10 +55,36 @@ class MindValleyFragmentNew : BaseFragment(){
         })
 
 
-        /*mindValleyViewModel.categories.listen(this){
-            renderMoviesList(it)
-        }*/
-        ///mindValleyViewModel.categories.observe(this, {})
+        mindValleyViewModel.episodesList.observe(this, Observer {
+            it?.let {
+                val linearLayoutManager = LinearLayoutManager(context)
+                linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+                rv_main_episodes.layoutManager = linearLayoutManager
+                context?.let { ctx ->
+                    val adapter = EpisodesAdapter(ctx, it)
+                    rv_main_episodes.adapter = adapter
+                }
+            }
+
+        })
+
+
+
+
+     /*   mindValleyViewModel.channelsList.observe(this, Observer {
+            it?.let {
+                val linearLayoutManager = LinearLayoutManager(context)
+                linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+                rv_main_channel.layoutManager = linearLayoutManager
+                context?.let { ctx ->
+                    val adapter = ChannelsAdapter(ctx, it)
+                    rv_main_channel.adapter = adapter
+                }
+            }
+
+        })*/
+
+
     }
 
     private fun initializeView() {
@@ -70,15 +95,14 @@ class MindValleyFragmentNew : BaseFragment(){
     }
 
     private fun loadCategoryList() {
-        //emptyView.invisible()
-        //movieList.visible()
-        showProgress()
         mindValleyViewModel.loadCategories()
+        mindValleyViewModel.loadEpisodes()
+
     }
 
-    private fun renderMoviesList(categories:List<CategoryBO>) {
+    private fun renderMoviesList(categories: List<CategoryBO>) {
         //moviesAdapter.collection = movies.orEmpty()
-        hideProgress()
+//        hideProgress()
     }
 
     private fun handleFailure(failure: Failure?) {
@@ -92,7 +116,7 @@ class MindValleyFragmentNew : BaseFragment(){
     private fun renderFailure(@StringRes message: Int) {
         //movieList.invisible()
         ///emptyView.visible()
-        hideProgress()
+//        hideProgress()
         ///notifyWithAction(message, R.string.action_refresh, ::loadMoviesList)
     }
 }

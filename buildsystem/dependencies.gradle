@@ -9,9 +9,10 @@ ext {
     //Android libraries
     appCompat_version = '27.1.0'
     sdp_ssp = '1.0.6'
+    glide_version = '4.11.0'
     constraintLayout_version = '1.0.2'
     archComponents_version = '1.1.1'
-    glide_version = '4.11.0'
+
 
     //Third party libraries
     kotlin_coroutines_version = '0.22.1'

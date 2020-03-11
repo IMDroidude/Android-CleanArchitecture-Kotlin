@@ -1,9 +1,11 @@
 package com.fernandocejas.sample.features.mindvalleys.models
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 data class ChannelPayload(@SerializedName("channels") val payload: List<ChannelBO>)
 
+@Entity(tableName = "ChannelEntity")
 data class ChannelBO(val title: String, val series: List<SeriesBO>, val mediaCount: Int, val latestMedia: List<MediaBO>,
                      val id: String, val iconAsset: IconAssetBO?, val coverAsset: CovertAssetBO)
 

@@ -17,8 +17,6 @@ package com.fernandocejas.sample.core.di.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.fernandocejas.sample.features.databaseArchitecutre.MindValleyViewModelNew
 import com.fernandocejas.sample.features.mindvalleys.MindValleyViewModel
 import com.fernandocejas.sample.features.movies.MovieDetailsViewModel
