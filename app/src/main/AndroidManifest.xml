@@ -37,6 +37,8 @@
             android:name=".features.movies.MoviesActivity"
             android:label="@string/movies_screen_title"></activity>
 
+    <activity android:name=".features.mindvalleys.MindValleyActivity"/>
+    <activity android:name=".features.databaseArchitecutre.MindValleyActivityNew"/>
         <activity android:name=".features.mindvalleys.MindValleyActivity" />
 
         <activity

@@ -18,6 +18,8 @@ package com.fernandocejas.sample.core.di
 import android.content.Context
 import com.fernandocejas.sample.AndroidApplication
 import com.fernandocejas.sample.BuildConfig
+import com.fernandocejas.sample.features.mindvalleys.localDB.MindValleyDao
+import com.fernandocejas.sample.features.mindvalleys.localDB.MindValleyDatabase
 import com.fernandocejas.sample.features.movies.MoviesRepository
 import dagger.Module
 import dagger.Provides
@@ -51,4 +53,8 @@ class ApplicationModule(private val application: AndroidApplication) {
     }
 
     @Provides @Singleton fun provideMoviesRepository(dataSource: MoviesRepository.Network): MoviesRepository = dataSource
+
+    @Singleton
+    @Provides
+    fun provideMindValleyDao(context: Context): MindValleyDao = MindValleyDatabase.getDatabase(context).mindValleyDao()
 }

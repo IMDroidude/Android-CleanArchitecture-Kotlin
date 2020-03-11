@@ -21,7 +21,9 @@ import com.fernandocejas.sample.core.interactor.UseCase
 import com.nhaarman.mockito_kotlin.given
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.verifyNoMoreInteractions
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.GlobalScope
+///import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.launch
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -38,7 +40,8 @@ class GetMoviesTest : UnitTest() {
     }
 
     @Test fun `should get data from repository`() {
-        runBlocking { getMovies.run(UseCase.None()) }
+        GlobalScope.launch { getMovies.run(UseCase.None()) }
+        //runBlocking { getMovies.run(UseCase.None()) }
 
         verify(moviesRepository).movies()
         verifyNoMoreInteractions(moviesRepository)
