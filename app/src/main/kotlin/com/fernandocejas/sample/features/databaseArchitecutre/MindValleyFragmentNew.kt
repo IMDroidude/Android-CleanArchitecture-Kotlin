@@ -31,7 +31,6 @@ class MindValleyFragmentNew : BaseFragment() {
         appComponent.inject(this)
 
         mindValleyViewModel = viewModel(viewModelFactory) {
-
         }
     }
 
@@ -68,23 +67,18 @@ class MindValleyFragmentNew : BaseFragment() {
 
         })
 
-
-
-
-     /*   mindValleyViewModel.channelsList.observe(this, Observer {
+        mindValleyViewModel.channelsList.observe(this, Observer {
             it?.let {
                 val linearLayoutManager = LinearLayoutManager(context)
-                linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-                rv_main_channel.layoutManager = linearLayoutManager
+                linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+                rv_main_episodes.layoutManager = linearLayoutManager
                 context?.let { ctx ->
                     val adapter = ChannelsAdapter(ctx, it)
                     rv_main_channel.adapter = adapter
                 }
             }
 
-        })*/
-
-
+        })
     }
 
     private fun initializeView() {
@@ -95,8 +89,9 @@ class MindValleyFragmentNew : BaseFragment() {
     }
 
     private fun loadCategoryList() {
-        mindValleyViewModel.loadCategories()
-        mindValleyViewModel.loadEpisodes()
+        ///mindValleyViewModel.loadCategories()
+        ///mindValleyViewModel.loadEpisodes()
+        mindValleyViewModel.loadChannels()
 
     }
 

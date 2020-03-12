@@ -19,16 +19,7 @@ class MindValleyViewModelNew @Inject constructor(private val mindValleyDao: Mind
 
     var categoryList: LiveData<List<CategoryBO>> = mindValleyDao.getCategories()
     var episodesList: LiveData<List<EpisodeBO>> = mindValleyDao.getEpisodes()
-    ///var channelsList: LiveData<List<ChannelBO>> = mindValleyDao.getChannels()
-
-    /*fun loadDatabase(mContext:Context){
-        ///mindValleyDao = MindValleyDatabase.getDatabase(mContext).mindValleyDao()
-
-        GlobalScope.launch(Dispatchers.IO) {
-            mindValleyDao.insert(CategoryBO(0,"first item"))
-        }
-        categoryList = mindValleyDao.getCategories()
-    }*/
+    var channelsList: LiveData<List<ChannelBO>> = mindValleyDao.getChannels()
 
     fun loadCategories() = getCategories(UseCase.None()) { it.fold(::handleCategoryFailure, ::handleCategories) }//getCategories(UseCase.None()) { it.fold(::handleFailure, ::handleCategories) }
     fun loadEpisodes() = getEpisodes(UseCase.None()) { it.fold(::handleCategoryFailure, ::handleEpisodes) }//getCategories(UseCase.None()) { it.fold(::handleFailure, ::handleCategories) }
@@ -55,15 +46,15 @@ class MindValleyViewModelNew @Inject constructor(private val mindValleyDao: Mind
 
 
 
-    private fun handleChannels(categoryPayload: ChannelPayload?) {
-        categoryPayload?.let {
+    private fun handleChannels(channelPayload: ChannelPayload?) {
+        channelPayload?.let {
             mindValleyDao.insertChannels(it.payload)
         }
     }
 
 
-    private fun handleEpisodes(categoryPayload: EpisodePayload?) {
-        categoryPayload?.let {
+    private fun handleEpisodes(episodePayload: EpisodePayload?) {
+        episodePayload?.let {
             mindValleyDao.insertEpisodes(it.media)
         }
     }
